@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+<!-- Ex2-->
+	<record model="ir.actions.act_window" id="action_zoo_animal_tree">
+		<field name="name">Animal</field>
+		<field name="res_model">zoo.animal</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_zoo_especie_tree">
+		<field name="name">Especie</field>
+		<field name="res_model">zoo.especie</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="action_zoo_zoo_tree">
+		<field name="name">Zoo</field>
+		<field name="res_model">zoo.zoo</field>
+	</record>
+
+<!-- Ex1-->
+	<menuitem name="Zoo" id="zoo_menu1" />
+	<menuitem name="Animal" parent="zoo_menu1" id="zoo_animal" action="action_zoo_animal_tree" />	
+	<menuitem name="Especie" parent="zoo_menu1" id="zoo_especie" action="action_zoo_especie_tree" />	
+	<menuitem name="Zoo" parent="zoo_menu1" id="zoo_zoo" action="action_zoo_zoo_tree" />		
+
+<!-- Ex3-->
+	<record model="ir.ui.view" id="view_zoo_animal_tree">
+		<field name="name">zoo_animal</field>
+		<field name="model">zoo.animal</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Animal">
+				<field name="continentorigen"/>
+				<field name="datanaix"/>
+				<field name="paisorigen"/>	
+                <field name="sexe"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_zoo_especie_tree">
+		<field name="name">zoo_especie</field>
+		<field name="model">zoo.especie</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Especie">
+				<field name="familia"/>
+				<field name="nomcientific"/>
+				<field name="nomvulgar"/>
+                <field name="perill"/>			
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_zoo_zoo_tree">
+		<field name="name">zoo_zoo</field>
+		<field name="model">zoo.zoo</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Zoo">
+				<field name="grandaria"/>
+				<field name="nom"/>
+				<field name="ciutat"/>				
+				<field name="pais"/>				
+			</tree>
+		</field>
+	</record>
+
+	</data>
+</odoo>
