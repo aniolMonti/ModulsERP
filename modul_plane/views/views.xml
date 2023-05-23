@@ -6,21 +6,25 @@
 	<record model="ir.actions.act_window" id="action_plane_aeroport_tree">
 		<field name="name">Aeroport</field>
 		<field name="res_model">plane.aeroport</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
 	<record model="ir.actions.act_window" id="action_plane_avio_tree">
 		<field name="name">Avio</field>
 		<field name="res_model">plane.avio</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
 	<record model="ir.actions.act_window" id="action_plane_pilot_tree">
 		<field name="name">Pilot</field>
 		<field name="res_model">plane.pilot</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
     <record model="ir.actions.act_window" id="action_plane_vol_tree">
 		<field name="name">Vol</field>
 		<field name="res_model">plane.vol</field>
+		<field name="view_mode">tree,form</field>
 	</record>
 
 <!-- Ex1-->
@@ -88,6 +92,123 @@
 			</tree>
 		</field>
 	</record>
+
+
+	<!-- FORMS -->
+	<record model="ir.ui.view" id="view_plane_aeroport_form">
+		<field name="name">plane_aeroport</field>
+		<field name="model">plane.aeroport</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Aeroport">
+				<sheet>
+					<group col="12" string="Dades de l'aeroport">
+						<group colspan="6">
+							<field name="nom"/>
+							<field name="ciutat"/>
+							<field name="pais" />
+							<field name="latitud"/>
+							<field name="longitut"/>
+						</group>
+						<group colspan="6">
+							<field name="imatge" widget="image" options="{'size': (150, 150)}"/>
+							
+						</group>
+					</group>
+					<group col="12" string="Afegir vols de desti">
+						<group colspan="12">
+							<field name="desti"/>
+						</group>
+					</group>
+					<group col="12" string="Afegir vols d'origen">
+						<group colspan="12">
+							<field name="origen"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_plane_avio_form">
+		<field name="name">plane_avio</field>
+		<field name="model">plane.avio</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Avio">
+				<sheet>
+					<group col="12" string="Dades de l'avio">
+						<group colspan="6">
+							<field name="marca"/>
+							<field name="model"/>
+							<field name="maxvel" />
+						</group>
+						<group colspan="6">
+							<field name="imatge" widget="image" options="{'size': (100, 100)}"/>
+						</group>
+					</group>
+					<group col="12" string="Afegir vols">
+						<group colspan="12">
+							<field name="vols_ids"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_plane_pilot_form">
+		<field name="name">plane_pilot</field>
+		<field name="model">plane.pilot</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Avio">
+				<sheet>
+					<group col="12" string="Dades del pilot">
+						<group colspan="6">
+							<field name="nom"/>
+							<field name="cognoms"/>
+							<field name="nif"/>
+						</group>
+						<group colspan="6">
+							<field name="telf" />
+							<field name="email"/>
+						</group>
+					</group>
+					<group col="12" string="Afegir vols">
+						<group colspan="12">
+							<field name="vols_ids"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_plane_vol_form">
+		<field name="name">plane_vol</field>
+		<field name="model">plane.vol</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Vol">
+				<sheet>
+					<group col="12" string="Dades del vol">
+						<group colspan="6">
+							<field name="desti"/>
+							<field name="origen"/>
+							<field name="datasortida" />
+							<field name="dataarrivada"/>
+						</group>
+						<group colspan="6">
+							<field name="passatgers"/>
+							<field name="avio_id"/>
+							<field name="pilot_id"/>
+						</group>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>	
 
 	</data>
 </odoo>
